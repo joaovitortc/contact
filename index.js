@@ -24,6 +24,7 @@ app.post("/contact", async function (req, res) {
     html: `
   <h1>Portfolio Contact Form</h1>
   <p><strong>Name:</strong> ${body.person_name}</p>
+  <p><strong>Name:</strong> ${body.email}</p>
   <p><strong>Company:</strong> ${body.company}</p>
   <p><strong>Message:</strong> ${body.message}</p>
 `,
@@ -38,6 +39,6 @@ app.post("/contact", async function (req, res) {
     });
 });
 
-app.listen(3000, function () {
-  console.log("App is listening on port 3000!");
+app.listen(3001, function () {
+  console.log("App is listening on port 3001!");
 });
