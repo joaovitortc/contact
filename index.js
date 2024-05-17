@@ -9,9 +9,6 @@ require("dotenv").config();
 app.use(bodyParser.json());
 app.use(cors());
 
-// Send an email:
-var client = new postmark.ServerClient(process.env.POSTMARK_SERVER_CLIENT);
-
 app.post("/contact", async function (req, res) {
   const body = req.body;
 
