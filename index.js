@@ -15,8 +15,8 @@ app.post("/contact", async function (req, res) {
   const sgMail = require("@sendgrid/mail");
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: process.env.EMAIL_TO, // Change to your recipient
-    from: process.env.EMAIL_FROM, // Change to your verified sender
+    to: process.env.EMAIL_TO,
+    from: process.env.EMAIL_FROM,
     subject: "Porfolio Contact Form",
     html: `
   <h1>Portfolio Contact Form</h1>
@@ -30,9 +30,11 @@ app.post("/contact", async function (req, res) {
     .send(msg)
     .then(() => {
       console.log("Email sent");
+      res.status(200).json({ status: 'ok', message: 'Email sent successfully' });
     })
     .catch((error) => {
       console.error(error);
+      res.status(500).json({ status: 'error', message: 'Email could not be sent' });
     });
 });
 
